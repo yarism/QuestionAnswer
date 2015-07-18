@@ -8,12 +8,11 @@ app.controller("mainController", function($scope, $timeout, QAService) {
             $scope.sent = true;
             $timeout(function() {
                 getQuestion();
-            }, 3000);
+            }, 2000);
         });
     };
 
     $scope.reload = function() {
-        $scope.loadingApp = true;
         initialize();
     };
 

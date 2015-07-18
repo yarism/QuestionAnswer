@@ -12,7 +12,7 @@
 
         function getQuestion() {
             var def = $q.defer();
-            $http.get("http://www.rly.nu/projects/gp/?action=getQuestion")
+            $http.get("http://www.rly.nu/projects/gp/?action=getUnansweredQuestion")
                 .success(function(data) {
                     def.resolve(data);
                 })
