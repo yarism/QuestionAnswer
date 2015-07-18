@@ -11,7 +11,7 @@ $font-size-1: 60px;
 $font-size-2: 40px;
 $font-size-3: 20px;
 
-$mobile-width: 520px;
+$mobile-width: 620px;
 
 html {
     height: 100%;
@@ -67,6 +67,10 @@ body {
 
 .pull-left {
     float: left;
+}
+
+.fullWidth {
+    width: 100%;
 }
 
 /* Loader */
@@ -131,6 +135,11 @@ $duration: 1.4s;
         padding-top: 5px;
         padding-bottom: 5px;
     }
+    .primaryButton {
+        position: relative;
+        top: 10px;
+        background-color: $dark-alt-color;
+    }
 }
 
 .question {
@@ -176,8 +185,11 @@ $duration: 1.4s;
 }
 
 .buttonLabel {
-    margin-right: 5px;
+    margin-right: 20px;
     color: $pink-color;
+    float: right;
+    position: relative;
+    top: 22px;
 }
 
 .primaryButton {
