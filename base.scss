@@ -11,6 +11,8 @@ $font-size-1: 60px;
 $font-size-2: 40px;
 $font-size-3: 20px;
 
+$mobile-width: 520px;
+
 html {
     height: 100%;
 }
@@ -124,12 +126,21 @@ $duration: 1.4s;
     padding-top: 80px;
     padding-bottom: 20px;
     background-color: $google-color;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.26)
+    box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+    @media (max-width: $mobile-width) {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
 }
 
 .question {
     font-size: $font-size-1;
-    /*text-shadow: 2px 2px 0px $dark-alt-color;*/
+    &:first-letter {
+        text-transform: capitalize;
+    }
+    @media (max-width: $mobile-width) {
+        font-size: $font-size-3;
+    }
 }
 
 .answer {
@@ -145,6 +156,11 @@ $duration: 1.4s;
     height: 200px;
     &:focus {
         color: $google-secondary-color;
+    }
+    @media (max-width: $mobile-width) {
+        margin-top: 20px;
+        font-size: $font-size-3;
+        height: 160px;
     }
 }
 
@@ -169,6 +185,7 @@ $duration: 1.4s;
     background-color: $pink-color;
     font-size: 30px;
     padding: 15px;
+    border: none;
     border-radius: 30px;
     -webkit-transition: all 200ms ease;
     transition: all 200ms ease;

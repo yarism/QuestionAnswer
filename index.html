@@ -5,6 +5,7 @@
                 display: none!important;
             }
         </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="app.css" rel="stylesheet" />
     </head>
@@ -26,13 +27,13 @@
                     <div class="pull-right">
                         <div ng-show="!sending && !sent">
                             <span ng-show="answer.length" class="charsLeft" ng-class="{'info' : answer.length >= (maxLength - 30) , 'warning' : answer.length >= (maxLength-10) }">{{maxLength - answer.length}}</span>
-                            <i ng-show="answer.length" ng-click="submitAnswer(answer)" ng-disabled="!answer.length || answer.length > maxLength" class="primaryButton submitButton material-icons">add</i>
+                            <button ng-show="answer.length" ng-click="submitAnswer(answer)" ng-disabled="!answer.length || answer.length > maxLength" class="primaryButton submitButton material-icons">add</button>
                         </div>
                         <svg ng-show="sending && !sent" class="spinner" style="position: relative; top: 0px; right: 2px;" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                             <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
                         </svg>
                         <div ng-show="sent">
-                            <span class="buttonLabel">Awesome! Give me a new question</span>
+                            <span class="buttonLabel">Awesome! New question</span>
                             <i ng-click="reload()" class="primaryButton submitButton material-icons">autorenew</i>
                         </div>
                     </div>
