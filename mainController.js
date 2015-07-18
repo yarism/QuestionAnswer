@@ -1,15 +1,16 @@
 app.controller("mainController", function($scope, QAService) {
-    $scope.loadingApp = true;
-
     initialize();
 
     $scope.submitAnswer = function(answer) {
-        console.log("scope: ", $scope);
-        console.log($scope.questionId);
         $scope.sending = true;
         return QAService.submitAnswer($scope.questionId, answer).then(function() {
             $scope.sending = false;
+            $scope.sent = true;
         });
+    };
+
+    $scope.reload = function() {
+        initialize();
     };
 
     function getQuestion() {
@@ -22,6 +23,9 @@ app.controller("mainController", function($scope, QAService) {
     }
 
     function initialize() {
+        $scope.loadingApp = true;
+        $scope.sent = false;
+        $scope.answer = "";
         getQuestion();
     }
 });
