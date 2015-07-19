@@ -1,0 +1,33 @@
+<div>
+    <div ng-show="loadingApp" class="loadingWrapper">
+        <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+           <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+        </svg>
+    </div>
+    <div ng-show="!loadingApp">
+        <div class="questionBar">
+            <div class="container">
+                <h1 class="question">{{question}}?<a ng-show="!sending && !sent" ng-click="reload()" class="button roundButton pull-right material-icons">autorenew</a></h1>
+                <div class="fullWidth textCenter answersContainer">
+                    <button class="button answersButton roundButton">{{numberOfAnswers}} answers</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <textarea title="Type your answer..." class="answer" placeholder="Type your answer..." autofocus ng-maxlength="{{ maxLength }}" maxlength="{{ maxLength }}" ng-model="answer" focus-on="focusMe"></textarea>
+            <div ng-show="!sending && !sent" class="pull-right">
+                <span ng-show="answer.length" class="charsLeft" ng-class="{'info' : answer.length >= (maxLength - 30) , 'warning' : answer.length >= (maxLength-10) }">{{maxLength - answer.length}}</span>
+                <button ng-show="answer.length" ng-click="submitAnswer(answer)" ng-disabled="!answer.length || answer.length > maxLength" class="button primaryButton roundButton submitButton material-icons">add</button>
+            </div>
+            <div ng-show="sending" class="pull-right fullWidth">
+                <svg ng-show="sending" class="spinner pull-right" style="position: relative; top: 0px; right: 2px;" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+                </svg>
+                <div ng-show="sent">
+                    <span class="buttonLabel">Awesome! Fetching new question...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

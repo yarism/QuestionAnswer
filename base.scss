@@ -152,6 +152,13 @@ $duration: 1.4s;
     }
 }
 
+.answersContainer {
+    position: absolute;
+    margin-top: -7px;
+    left: 0;
+    right: 0;
+}
+
 .answer {
     margin-top: 60px;
     font-size: $font-size-2;
@@ -184,6 +191,8 @@ $duration: 1.4s;
     }
 }
 
+/* Buttons */
+
 .buttonLabel {
     margin-right: 20px;
     color: $pink-color;
@@ -192,13 +201,12 @@ $duration: 1.4s;
     top: 22px;
 }
 
-.primaryButton {
+.button {
     color: white;
-    background-color: $pink-color;
+    background-color: $dark-alt-color;
     font-size: 30px;
     padding: 15px;
     border: none;
-    border-radius: 30px;
     -webkit-transition: all 200ms ease;
     transition: all 200ms ease;
     -webkit-transform: scale(0.9);
@@ -217,7 +225,20 @@ $duration: 1.4s;
     }
 }
 
+.primaryButton {
+    background-color: $pink-color;
+}
+
+.roundButton {
+    border-radius: 30px;
+}
+
 .submitButton {
     position: relative;
     top: 8px;
+}
+
+.answersButton {
+    font-size: 18px;
+    border-radius: 30px;
 }
