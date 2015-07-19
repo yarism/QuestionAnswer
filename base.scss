@@ -27,6 +27,15 @@ body {
     color: white;
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-size: $font-size-3;
+}
+
 ::-webkit-input-placeholder {
    color: $google-secondary-color;
 }
@@ -124,10 +133,62 @@ $duration: 1.4s;
     }
 }
 
+/* Buttons */
+
+.buttonLabel {
+    margin-right: 20px;
+    color: $pink-color;
+    float: right;
+    position: relative;
+    top: 22px;
+}
+
+.button {
+    color: white;
+    background-color: $dark-alt-color;
+    font-size: 30px;
+    padding: 15px;
+    border: none;
+    -webkit-transition: all 200ms ease;
+    transition: all 200ms ease;
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.28);
+    cursor: pointer;
+    &:disabled {
+        opacity: 0.7;
+        cursor: default;
+    }
+    &:hover {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+.primaryButton {
+    background-color: $pink-color;
+}
+
+.roundButton {
+    border-radius: 30px;
+}
+
+.submitButton {
+    position: relative;
+    top: 8px;
+}
+
+.answersButton {
+    font-size: 18px;
+    border-radius: 30px;
+}
+
 /* App */
 
 .questionBar {
-    padding-top: 80px;
+    padding-top: 40px;
     padding-bottom: 20px;
     background-color: $google-color;
     box-shadow: 0 2px 5px rgba(0,0,0,0.26);
@@ -191,54 +252,10 @@ $duration: 1.4s;
     }
 }
 
-/* Buttons */
-
-.buttonLabel {
-    margin-right: 20px;
-    color: $pink-color;
-    float: right;
-    position: relative;
-    top: 22px;
-}
-
-.button {
-    color: white;
-    background-color: $dark-alt-color;
-    font-size: 30px;
-    padding: 15px;
-    border: none;
-    -webkit-transition: all 200ms ease;
-    transition: all 200ms ease;
-    -webkit-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    transform: scale(0.9);
-    box-shadow: 0 1px 5px rgba(0,0,0,0.28);
-    cursor: pointer;
-    &:disabled {
-        opacity: 0.7;
-        cursor: default;
-    }
-    &:hover {
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
-    }
-}
-
-.primaryButton {
-    background-color: $pink-color;
-}
-
-.roundButton {
-    border-radius: 30px;
-}
-
-.submitButton {
-    position: relative;
-    top: 8px;
-}
-
-.answersButton {
-    font-size: 18px;
-    border-radius: 30px;
+.card {
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.2),0 1px 8px 0 rgba(0,0,0,.12);
+    color: rgba(0,0,0,.87);
+    line-height: 18px;
+    overflow: hidden;
+    padding: 16px;
 }

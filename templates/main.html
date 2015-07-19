@@ -7,12 +7,18 @@
     <div ng-show="!loadingApp">
         <div class="questionBar">
             <div class="container">
-                <h1 class="question">{{question}}?<a ng-show="!sending && !sent" ng-click="reload()" class="button roundButton pull-right material-icons">autorenew</a></h1>
-                <div class="fullWidth textCenter answersContainer">
-                    <button class="button answersButton roundButton">{{numberOfAnswers}} answers</button>
+                <h1 class="question">{{question}}?<a ng-show="!sending && !sent" ng-click="reload()" class="button roundButton pull-right material-icons" style="margin-top: 8px;">autorenew</a></h1>
+                <div ng-show="numberOfAnswers > 0" class="fullWidth textCenter answersContainer">
+                    <button class="button answersButton roundButton" ng-click="showAnswers = !showAnswers">{{numberOfAnswers}} answers</button>
                 </div>
             </div>
-
+        </div>
+        <div ng-show="showAnswers" class="container marginTop--double">
+            <ul class="fullWidth">
+                <li class="card" ng-repeat="answer in answers">
+                    <p>{{answer}}</p>
+                </li>
+            </ul>
         </div>
         <div class="container">
             <textarea title="Type your answer..." class="answer" placeholder="Type your answer..." autofocus ng-maxlength="{{ maxLength }}" maxlength="{{ maxLength }}" ng-model="answer" focus-on="focusMe"></textarea>

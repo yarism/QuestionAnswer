@@ -23,6 +23,7 @@ app.controller("mainController", function($scope, $timeout, $location, QAService
             $scope.maxLength = 130 - question[0].length;
             $scope.questionId = question[0].id;
             $scope.numberOfAnswers = question[0].answers;
+            $scope.answers = question[0].answer;
             $scope.loadingApp = false;
             $location.search('question', $scope.question.replace(/\s+/g, '-'));
             clearData();
