@@ -15,7 +15,7 @@
 
         function getQuestion() {
             var def = $q.defer();
-            $http.get("http://www.rly.nu/projects/gp/?action=getUnansweredQuestion")
+            $http.get("./QAService/?action=getUnansweredQuestion")
                 .success(function(data) {
                     def.resolve(data);
                 })
@@ -29,7 +29,7 @@
             var def = $q.defer();
             $http({
                     method: "GET",
-                    url: "http://www.rly.nu/projects/gp/?action=getQuestionById",
+                    url: "./QAService/?action=getQuestionById",
                     params: {id: id}
                 })
                 .success(function(data) {
@@ -43,7 +43,7 @@
 
         function getAllQuestions() {
             var def = $q.defer();
-            $http.get("http://www.rly.nu/projects/gp/?action=getAllQuestions")
+            $http.get("./QAService/?action=getAllQuestions")
                 .success(function(data) {
                     def.resolve(data);
                 })
@@ -57,7 +57,7 @@
             var def = $q.defer();
             $http({
                     method: 'POST',
-                    url: 'http://www.rly.nu/projects/gp/?action=submitAnswer',
+                    url: './QAService/?action=submitAnswer',
                     data: "qid=" + id + "&answer=" + answer,
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 })
@@ -74,7 +74,7 @@
             var def = $q.defer();
             $http({
                     method: "GET",
-                    url: "http://www.rly.nu/projects/gp/?action=getAnswersForQuestion",
+                    url: "./QAService/?action=getAnswersForQuestion",
                     params: {qid: id}
                 })
                 .success(function(data) {
