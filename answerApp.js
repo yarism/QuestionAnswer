@@ -5,11 +5,13 @@ app.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'templates/main.html',
-            controller: 'mainController'
+            controller: 'mainController',
+            reloadOnSearch: false
         })
         .when('/:questionId/:question', {
             templateUrl: 'templates/main.html',
-            controller: 'mainController'
+            controller: 'mainController',
+            reloadOnSearch: false
         })
         .when('/questions', {
             templateUrl: 'templates/questions.html',

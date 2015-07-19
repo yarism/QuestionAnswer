@@ -23,6 +23,7 @@ app.controller("mainController", function($scope, $timeout, $location, $routePar
         $scope.questionId = question.id;
         $scope.numberOfAnswers = question.answers;
         $scope.loadingApp = false;
+        $location.search({ 'id': question.id, 'question': question.question.replace(/\s+/g, '-') });
         QAService.getAnswersForQuestion($scope.questionId).then(function(answers) {
             $scope.answers = answers;
         });
