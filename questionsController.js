@@ -3,7 +3,6 @@ app.controller("questionsController", function($scope, QAService) {
 
     function getAllQuestions() {
         return QAService.getAllQuestions().then(function(questions) {
-            console.log(questions);
             $scope.questions = questions;
         });
     }

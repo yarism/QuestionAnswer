@@ -1,7 +1,6 @@
 app.controller("mainController", function($scope, $timeout, $location, $routeParams, QAService, focus) {
     $scope.loadingApp = true;
     initialize();
-    console.log("$routeParams: ", $routeParams);
 
     $scope.submitAnswer = function(answer) {
         $scope.sending = true;
@@ -19,7 +18,6 @@ app.controller("mainController", function($scope, $timeout, $location, $routePar
     };
 
     function renderQuestion(question) {
-        console.log(question);
         $scope.question = question.question;
         $scope.maxLength = 130 - question.length;
         $scope.questionId = question.id;
@@ -39,7 +37,6 @@ app.controller("mainController", function($scope, $timeout, $location, $routePar
 
     function getQuestionById(id) {
         return QAService.getQuestionById(id).then(function(question) {
-            console.log(question);
             if (question.status !== "0") {
                 $scope.questionMissing = "This is not the question you are looking for";
                 $scope.loadingApp = false;
