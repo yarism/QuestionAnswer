@@ -1,6 +1,7 @@
-app.controller("mainController", function($scope, $timeout, $location, QAService, focus) {
+app.controller("mainController", function($scope, $timeout, $location, $routeParams, QAService, focus) {
     $scope.loadingApp = true;
     initialize();
+    console.log("$routeParams: ", $routeParams);
 
     $scope.submitAnswer = function(answer) {
         $scope.sending = true;
@@ -13,21 +14,39 @@ app.controller("mainController", function($scope, $timeout, $location, QAService
     };
 
     $scope.reload = function() {
+        $location.url('/');
         initialize();
     };
 
+    function renderQuestion(question) {
+        console.log(question);
+        $scope.question = question.question;
+        $scope.maxLength = 130 - question.length;
+        $scope.questionId = question.id;
+        $scope.numberOfAnswers = question.answers;
+        $scope.loadingApp = false;
+        QAService.getAnswersForQuestion($scope.questionId).then(function(answers) {
+            $scope.answers = answers;
+        });
+        clearData();
+    }
+
     function getQuestion() {
         return QAService.getQuestion().then(function(question) {
+            renderQuestion(question);
+        });
+    }
+
+    function getQuestionById(id) {
+        return QAService.getQuestionById(id).then(function(question) {
             console.log(question);
-            $scope.question = question[0].question;
-            $scope.maxLength = 130 - question[0].length;
-            $scope.questionId = question[0].id;
-            $scope.numberOfAnswers = question[0].answers;
-            $scope.answers = question[0].answer;
-            $scope.loadingApp = false;
-            $location.search('question', $scope.question.replace(/\s+/g, '-'));
-            clearData();
-            //$location.url('/' + $scope.question);
+            if (question.status !== "0") {
+                $scope.questionMissing = "This is not the question you are looking for";
+                $scope.loadingApp = false;
+            }
+            else {
+                renderQuestion(question);
+            }
         });
     }
 
@@ -35,10 +54,17 @@ app.controller("mainController", function($scope, $timeout, $location, QAService
         $scope.sending = false;
         $scope.sent = false;
         $scope.answer = "";
+        $scope.showAnswers = false;
+        $scope.questionMissing = "";
     }
 
     function initialize() {
-        getQuestion();
+        if ($routeParams.questionId) {
+            getQuestionById($routeParams.questionId);
+        }
+        else {
+            getQuestion();
+        }
         focus('focusMe');
     }
 });

@@ -1,0 +1,13 @@
+<div class="container marginTop marginBottom">
+    <ul class="fullWidth">
+        <li class="card marginTop" ng-repeat="question in questions">
+            <h2>{{question.question}}</h2>
+
+            <ul>
+                <li ng-repeat="answer in question.answers">
+                    <p><i class="material-icons">check_circle</i>{{answer.answer}}</p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

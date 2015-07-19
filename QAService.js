@@ -7,7 +7,10 @@
 
         return {
             getQuestion: getQuestion,
-            submitAnswer: submitAnswer
+            getQuestionById: getQuestionById,
+            getAllQuestions: getAllQuestions,
+            submitAnswer: submitAnswer,
+            getAnswersForQuestion: getAnswersForQuestion
         };
 
         function getQuestion() {
@@ -18,6 +21,34 @@
                 })
                 .error(function() {
                     def.reject("Failed to get question");
+                });
+            return def.promise;
+        }
+
+        function getQuestionById(id) {
+            var def = $q.defer();
+            $http({
+                    method: "GET",
+                    url: "http://www.rly.nu/projects/gp/?action=getQuestionById",
+                    params: {id: id}
+                })
+                .success(function(data) {
+                    def.resolve(data);
+                })
+                .error(function() {
+                    def.reject("Failed to get question");
+                });
+            return def.promise;
+        }
+
+        function getAllQuestions() {
+            var def = $q.defer();
+            $http.get("http://www.rly.nu/projects/gp/?action=getAllQuestions")
+                .success(function(data) {
+                    def.resolve(data);
+                })
+                .error(function() {
+                    def.reject("Failed to get questions");
                 });
             return def.promise;
         }
@@ -35,6 +66,22 @@
                 })
                 .error(function() {
                     def.reject("Failed to submit answer");
+                });
+            return def.promise;
+        }
+
+        function getAnswersForQuestion(id) {
+            var def = $q.defer();
+            $http({
+                    method: "GET",
+                    url: "http://www.rly.nu/projects/gp/?action=getAnswersForQuestion",
+                    params: {qid: id}
+                })
+                .success(function(data) {
+                    def.resolve(data);
+                })
+                .error(function() {
+                    def.reject("Failed to get answers");
                 });
             return def.promise;
         }
