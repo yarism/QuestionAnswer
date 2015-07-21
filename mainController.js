@@ -56,7 +56,6 @@ app.controller("mainController", function($scope, $timeout, $location, $routePar
     }
 
     function initialize(reload) {
-        console.log("reload: ", reload);
         if ($routeParams.id && !reload) {
             getQuestionById($routeParams.id);
         }
