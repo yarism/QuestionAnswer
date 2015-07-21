@@ -1,6 +1,6 @@
 app.controller("mainController", function($scope, $timeout, $location, $routeParams, QAService, focus) {
     $scope.loadingApp = true;
-    initialize();
+    initialize(false);
 
     $scope.submitAnswer = function(answer) {
         $scope.sending = true;
@@ -13,8 +13,7 @@ app.controller("mainController", function($scope, $timeout, $location, $routePar
     };
 
     $scope.reload = function() {
-        $location.url('/');
-        initialize();
+        initialize(true);
     };
 
     function renderQuestion(question) {
@@ -56,8 +55,9 @@ app.controller("mainController", function($scope, $timeout, $location, $routePar
         $scope.questionMissing = "";
     }
 
-    function initialize() {
-        if ($routeParams.id) {
+    function initialize(reload) {
+        console.log("reload: ", reload);
+        if ($routeParams.id && !reload) {
             getQuestionById($routeParams.id);
         }
         else {
