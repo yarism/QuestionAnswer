@@ -57,8 +57,8 @@ app.controller("mainController", function($scope, $timeout, $location, $routePar
     }
 
     function initialize() {
-        if ($routeParams.questionId) {
-            getQuestionById($routeParams.questionId);
+        if ($routeParams.id) {
+            getQuestionById($routeParams.id);
         }
         else {
             getQuestion();
