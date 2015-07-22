@@ -5,7 +5,7 @@
 
             <ul>
                 <li ng-repeat="answer in question.answers">
-                    <p><i class="material-icons">check_circle</i>{{answer.answer}}</p>
+                    <p><i class="material-icons">check_circle</i><span ng-bind-html="trustAsHtml(answer.answer)"></span></p>
                 </li>
             </ul>
         </li>

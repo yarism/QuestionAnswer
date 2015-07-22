@@ -1,3 +1,3 @@
-app.controller("rootController", function($scope) {
-    console.log("loaded rootController");
+app.controller("rootController", function($scope, $sce) {
+    $scope.trustAsHtml = $sce.trustAsHtml;
 });
