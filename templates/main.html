@@ -6,9 +6,10 @@
     </div>
     <div ng-show="!loadingApp">
         <div class="questionBar">
-            <div class="container">
-                <h1 ng-show="questionMissing" class="question">{{questionMissing}}<a ng-show="!sending && !sent" ng-click="reload()" class="button roundButton pull-right material-icons" style="margin-top: 8px;">autorenew</a></h1>
-                <h1 ng-show="question" class="question">{{question}}?<a ng-show="!sending && !sent" ng-click="reload()" class="button roundButton pull-right material-icons" style="margin-top: 8px;">autorenew</a></h1>
+            <div class="container" style="position: relative;">
+                <h1 ng-show="questionMissing" class="question">{{questionMissing}}</h1>
+                <h1 ng-show="question" class="question">{{question}}?</h1>
+                <a ng-show="!sending && !sent" ng-click="reload()" class="reload button roundButton pull-right material-icons">autorenew</a>
                 <div ng-show="numberOfAnswers > 0" class="fullWidth textCenter answersContainer">
                     <button class="button answersButton roundButton" ng-click="showAnswers = !showAnswers">{{numberOfAnswers}} answers</button>
                 </div>

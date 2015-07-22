@@ -1026,8 +1026,13 @@ h2 {
     position: relative;
     top: 10px;
     background-color: #024DBE; }
+  .questionBar .reload {
+    position: absolute;
+    top: 5px;
+    right: 0; }
 
 .question {
+  width: calc(100% - 75px);
   font-size: 60px; }
   .question:first-letter {
     text-transform: capitalize; }

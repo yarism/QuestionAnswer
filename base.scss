@@ -210,9 +210,15 @@ $duration: 1.4s;
         top: 10px;
         background-color: $dark-alt-color;
     }
+    .reload {
+        position: absolute;
+        top: 5px;
+        right: 0;
+    }
 }
 
 .question {
+    width: calc(100% - 75px);
     font-size: $font-size-1;
     &:first-letter {
         text-transform: capitalize;
