@@ -7,7 +7,7 @@ app.controller("mainController", function($scope, $timeout, $location, $routePar
         return QAService.submitAnswer($scope.questionId, answer).then(function() {
             $scope.sent = true;
             $timeout(function() {
-                initialize();
+                initialize(true);
             }, 2000);
         });
     };

@@ -17,7 +17,7 @@
         <div ng-show="showAnswers" class="container marginTop--double">
             <ul class="fullWidth">
                 <li class="card marginTop" ng-repeat="answer in answers">
-                    <p>{{answer.answer}}</p>
+                    <p ng-bind-html="trustAsHtml(answer.answer)"></p>
                 </li>
             </ul>
         </div>
